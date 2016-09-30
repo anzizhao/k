@@ -7,19 +7,39 @@ module.exports  = function(grunt) {
                  exec: 'npm run json',
             }
         },
+        sass: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'css',
+                    src: ['*.scss'],
+                    dest: 'css/',
+                    ext: '.css'
+                }]
+            }
+        },
+
         watch: {
-            json: {
-                files: 'mockdata.js',
-                tasks: ['run:json'],
+            sass: {
+                files: 'css/*.scss',
+                tasks: ['sass:dist'],
                 options: {
                     atBegin: true,
                 }
-            },
+            }
+            //json: {
+                //files: 'mockdata.js',
+                //tasks: ['run:json'],
+                //options: {
+                    //atBegin: true,
+                //}
+            //},
         },
     });
 
     grunt.loadNpmTasks('grunt-run');
     grunt.loadNpmTasks('grunt-contrib-watch'); 
+    grunt.loadNpmTasks('grunt-contrib-sass'); 
 
 };
 

@@ -10,6 +10,7 @@
     "watch": "grunt watch:json",
     "tmodAres": "tmod tpl/ares",
     "tmodArticle": "tmod tpl/articles",
+    "sass": "grunt watch",
     "startS": "anywhere -p 8373",
     "start": "NODE_ENV=development node server.js --progress --colors --profile",
     "server": "json-server ./test/data/mockdata.js --port 6330 --routes  ./test/data/routes.json --middlewares ./test/data/middleware.js ",
@@ -30,5 +31,8 @@
     "webpack-dev-middleware": "^1.8.2",
     "webpack-dev-server": "^1.16.1",
     "webpack-hot-middleware": "^2.12.2"
+  },
+  "dependencies": {
+    "grunt-contrib-sass": "^1.0.0"
   }
 }

@@ -687,13 +687,11 @@ a {
   background-color: #fff; }
 
 .l-list-banner {
-  /*position: fixed; */
-  }
+  /*position: fixed;*/ }
 
 .no-data-msg {
-    text-align: center;
-    padding: 10px 0;
-}
+  text-align: center;
+  padding: 10px 0; }
 
 .l-artcle-list, .artcile-guess-you-like-list {
   border-bottom: 1px solid #ddd; }
