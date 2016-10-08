@@ -1,6 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 var merge = require('merge');
+// Import the plugin:
+var DashboardPlugin = require('webpack-dashboard/plugin');
 //var ExtractTextPlugin = require('extract-text-webpack-plugin');
 //var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
@@ -90,6 +92,7 @@ if (process.env.NODE_ENV === 'production') {
         } ,
         plugins : [
             new webpack.HotModuleReplacementPlugin(),
+            new DashboardPlugin(),
         ]  
     });
 }

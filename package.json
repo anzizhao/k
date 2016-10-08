@@ -12,7 +12,8 @@
     "tmodArticle": "tmod tpl/articles",
     "sass": "grunt watch",
     "startS": "anywhere -p 8373",
-    "start": "NODE_ENV=development node server.js --progress --colors --profile",
+    "startN": "NODE_ENV=development node server.js --progress --colors --profile",
+    "start": "webpack-dashboard -- node server.js --progress --colors --profile ",
     "server": "json-server ./test/data/mockdata.js --port 6330 --routes  ./test/data/routes.json --middlewares ./test/data/middleware.js ",
     "debugServer": "node debug json-server path ./test/data/mockdata.js --port 6330 --routes  ./test/data/routes.json --middlewares ./test/data/middleware.js ",
     "build": "npm run clean && NODE_ENV=production webpack -p --progress --colors --profile"
@@ -28,6 +29,7 @@
     "tmod-loader": "0.0.3",
     "tmodjs-loader": "^1.0.1",
     "webpack": "^1.13.2",
+    "webpack-dashboard": "^0.2.0",
     "webpack-dev-middleware": "^1.8.2",
     "webpack-dev-server": "^1.16.1",
     "webpack-hot-middleware": "^2.12.2"
