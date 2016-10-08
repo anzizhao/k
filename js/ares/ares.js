@@ -31,7 +31,6 @@ Ares.prototype.getData = function(){
             mv.render() 
         }
     })
-    bbb = ;
 }
 
 Ares.prototype.transformData = function(data){
