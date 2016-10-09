@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "clean": "echo 'test'",
+    "clean": "echo ''",
     "jsonServerInstall": "npm i json-server -g",
     "tmodJsInstall": "npm install -g tmodjs",
     "watch": "grunt watch:json",
@@ -14,7 +14,7 @@
     "startS": "anywhere -p 8373",
     "startN": "NODE_ENV=development node server.js --progress --colors --profile",
     "start": "webpack-dashboard -- node server.js --progress --colors --profile ",
-    "packTest": "grunt packTest --tag=\"v0.0.0.1\" --message=\"should make a message\" ", 
+    "packTest": "echo grunt packTest --tag=\"v0.0.0.1\" --message= ", 
     "server": "json-server ./test/data/mockdata.js --port 6330 --routes  ./test/data/routes.json --middlewares ./test/data/middleware.js ",
     "debugServer": "node debug json-server path ./test/data/mockdata.js --port 6330 --routes  ./test/data/routes.json --middlewares ./test/data/middleware.js ",
     "build": "npm run clean && NODE_ENV=production webpack -p --progress --colors --profile"
