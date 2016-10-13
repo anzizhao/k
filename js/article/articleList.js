@@ -33,6 +33,7 @@ ArticleList.prototype.getData = function(page, _limit){
     var limit = _limit || 10
 
     var urlObj = {
+        cate_id: this.key,
         type: 'all',
         controller: 'article', 
         action: 'lists',
