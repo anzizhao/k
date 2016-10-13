@@ -46,6 +46,7 @@ Ares.prototype.transformData = function(data){
     +  '?id='  + data.partner_id  
     + '&sn='  + data.employee_sn  
     + '&name='  + data.employee_name 
+    + '&team=' + data.partner_name
     + '&avatar=' + data.employee_avatar;
 }
 
