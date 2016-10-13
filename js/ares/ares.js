@@ -40,6 +40,13 @@ Ares.prototype.transformData = function(data){
         data.stars.push(i) 
     }
     this.data = data
+
+    //whoamiUrl 
+    this.data.whoamiUrl =  gWhoamiUrl  
+    +  '?id='  + data.partner_id  
+    + '&sn='  + data.employee_sn  
+    + '&name='  + data.employee_name 
+    + '&avatar=' + data.employee_avatar;
 }
 
 Ares.prototype.render = function(){
