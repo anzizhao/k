@@ -1,6 +1,6 @@
 <section class="m-panel">
 	<div class="m-panel-main-article">
-		<a href="#/articleDetails" style="background-image:url({{articles[0].picture}});">
+        <a href="#/articleDetails/{{ articles[0].article_id }}" style="background-image:url({{articles[0].picture}});">
 			<div class="m-panel-tips">
 				<p>{{articles[0].title}}<span class="m-panel-price"><i>¥</i>23.32</span></p>
 			</div>
@@ -19,7 +19,7 @@
 		{{/each}}
 	</ul>
 
-    {{if key !== 'welcomeM' }}
-    <a class="m-panel-btn-tatal" href="javascript:;" data-key="{{key}}" >查看全部</a>
+    {{if key !== '0'  || key !== 0 }}
+    <a class="m-panel-btn-tatal" href="javascript:;" data-key="{{cate_id}}" >查看全部</a>
     {{/if}}
 </section>

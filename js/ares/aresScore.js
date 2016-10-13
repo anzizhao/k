@@ -24,6 +24,8 @@ AresScore.prototype.init = function(){
 AresScore.prototype.getData = function(){
     var url = URL_PREFIX + '/index.php';
     var urlObj = {
+        partner_id: this.id, 
+        employee_sn : this.sn,
         controller: 'employee', 
         action: 'card'
     }
@@ -33,15 +35,17 @@ AresScore.prototype.getData = function(){
     }
 
     var mv = this
-    $.getJSON( url, urlObj, function(data){
+    $.getJSON( url, urlObj , function(data){
         if(data.error == 0){
             mv.transformData( data.data  )
             apiStatus.ares = true
             shouldRender()
         }
     })
-    urlObj.action = 'myScores'
-    $.getJSON( url, urlObj, function(data){
+
+    urlObj.action =  'myScores'
+
+    $.getJSON( url, urlObj , function(data){
         if(data.error == 0){
             mv.scoreData = data.data
             apiStatus.score = true

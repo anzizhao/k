@@ -51,7 +51,7 @@ function init(){
 function getArticles(key){
     var url =  URL_PREFIX + '/index.php' 
     var _data = { 
-        key: key, 
+        cate_id: key, 
         type: 'recommended',
         controller: 'article',
         action: 'lists',
@@ -130,7 +130,7 @@ function menuRouteEntry(){
 
     if( gFirstEnter ) {
         // 默认推送
-        getArticles("welcomeM");
+        getArticles("0");
         getMenus();
         gFirstEnter = false 
 

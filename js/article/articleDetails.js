@@ -1,13 +1,20 @@
 var articleDetailsTpl = require('../../tpl/articles/articleDetails.html')
 var articleRecommendTpl  = require('../../tpl/articles/articleRecommend.html')
 
-function articleDetailsRouterEntry(){
+function articleDetailsRouterEntry(id){
 	$(window).scrollTop(0);
+    var url =  URL_PREFIX + '/index.php' 
+    var _detailData = { 
+        controller: 'article',
+        action: 'view',
+        article_id: id, 
+    }
+
 	$.ajax({
 		type: "GET",
-		url: "http://localhost:6330/articleDetail",
+		url: url,
 		dataType: "json",
-		data: '',
+		data: _detailData,
 		success: function(data){
 			if(data.error == 0){
 				console.dir(data.data);
@@ -18,20 +25,23 @@ function articleDetailsRouterEntry(){
 		}
 	});	
 
-	$.ajax({
-		type: "GET",
-		url: "http://localhost:6330/recommendArticle",
-		dataType: "json",
-		data: '',
-		success: function(data){
-			if(data.error == 0){
-				console.dir(data.data);
-				//var html = template("articleRecommend", data.data);
-				var html = articleRecommendTpl(data.data);
-				$("#view-page").append(html);
-			}
-		}
-	});
+    //var _recommendData = { 
+        //controller: 'article',
+        //action: 'listByTags',
+    //}
+	//$.ajax({
+		//type: "GET",
+		//url: url,
+		//dataType: "json",
+		//data: _recommendData,
+		//success: function(data){
+			//if(data.error == 0){
+				//console.dir(data.data);
+				//var html = articleRecommendTpl(data.data);
+				//$("#view-page").append(html);
+			//}
+		//}
+	//});
 }
 
 module.exports = articleDetailsRouterEntry;

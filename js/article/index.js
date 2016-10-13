@@ -5,7 +5,7 @@ var articleListRouteEntry = require('./articleList')
 // 路由配置
 var routes = {
     '/menu': menuRouteEntry,
-    '/articleDetails': articleDetailsRouteEntry,
+    '/articleDetails/:id': articleDetailsRouteEntry,
     '/articleList/:key' : articleListRouteEntry,
 }
 
@@ -14,7 +14,7 @@ gRouter = gRouter.init(['/menu']);
 
 gRouter.on('after', 'articleList/:key', function(){
     console.log('leave articleList/:key')
-    gData.articleList.unBind()
+    gData.articleList.unBindScroll()
 })
 
 //gRouter.on('after', '/menu', function(){
