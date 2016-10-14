@@ -54,6 +54,11 @@ function generateObj () {
                 }
             ]
         },
+        noArticles: {   // 获取文章列表
+            key: '',
+            banner: 'img/l-banner.jpg',
+            articles: [],
+        },
         menus: {  // 获取菜单
             button : [
                 {

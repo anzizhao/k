@@ -41,8 +41,10 @@ function handleArticle (req, res, next) {
             if( req.query.type === 'recommended' ) {
                 if( req.query.key === 'relatedHardwareM' ) {
                     retData = clone( mockData.recommendGoods ) 
-                } else{
-                    retData = clone( mockData.recommendArticle ) 
+                } else if ( req.query.key === 'peerCompanyStateM' ) {
+                    retData = clone( mockData.noArticles ) 
+                } else {
+                    retData = clone( mockData.allArticles) 
                 } 
             } else if ( req.query.type === 'all'  ) {
                 if( parseInt(req.query.page ) < 4 ) {

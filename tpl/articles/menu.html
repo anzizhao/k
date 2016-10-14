@@ -1,15 +1,17 @@
 <div class="m-footer">
 	<ul class="m-footer-nav">
-		<li class="item">
-			<a href=""></a>
-		</li>
+        <li class="item">
+            <a href="{{ keyboardUrl}}">
+                <img src="img/keyboard.png" alt="" style="width:20px;height:23px;" />
+            </a>
+        </li>
 		{{each button as b i}}
 		<li class="item">
 			<a href="javascript:;">{{b.name}}</a>
 			<div>
 				<ul class="sub-btn-list">
 					{{each b.sub_button as sb i}}
-                    <li data-type="{{sb.type}}" data-key="{{ sb.cate_id }}" data-url="{{ sb.url }}">{{sb.name}}</li>
+                    <li data-type="{{sb.type}}" data-key="{{ sb.cate_id }}" data-url="{{ sb.url }}" data-name="{{ menuName }}"  >{{sb.name}}</li>
 					{{/each}}
 				</ul>
 			</div>

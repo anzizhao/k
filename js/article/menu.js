@@ -1,12 +1,14 @@
 
 var panelTpl = require('../../tpl/articles/panel.html')
 var menuTpl = require('../../tpl/articles/menu.html')
+var noArticleTpl = require('../../tpl/articles/noArticleMessage.html')
 
 
 var data = {
 	button: null,
 	sections: [],
-	articles: null
+	articles: null,
+    keyboardUrl: gKeyboardUrl, 
 }
 
 function init(){
@@ -26,11 +28,12 @@ function init(){
 
 		//var key = $(this).attr("data-key");
 		var type = $(this).data("type");
-        var key, url;
+        var key, url, name;
         switch( type ) {
             case 'click' : 
                 key = $(this).data("key");
-                getArticles(key);
+                name= $(this).data("name");
+                getArticles(key, name);
                 break
             case 'view' : 
                 url = $(this).data("url");
@@ -48,7 +51,7 @@ function init(){
 }
 
 
-function getArticles(key){
+function getArticles(key, menuName){
     var url =  URL_PREFIX + '/index.php' 
     var _data = { 
         cate_id: key, 
@@ -64,9 +67,9 @@ function getArticles(key){
 		success: function(res){
 			if(res.error == 0){
 				//data.sections.push( { articles: res.data.articles } )
-                if( res.data)
-				data.sections.push( res.data  )
-				renderArticles();
+                res.data.menuName = menuName; 
+                data.sections.push( res.data  )
+                renderArticles();
 			}
 		}
 	});	
@@ -77,7 +80,12 @@ function renderArticles(){
 		var html = ''
 		data.sections.forEach(function(item){
 			//html += template("panel", item)
-			html += panelTpl(item)
+            //TODO articles 为空数组
+            if( item.articles &&  item.articles.length ) {
+                html += panelTpl(item)
+            } else {
+                html += noArticleTpl ({ menuName: item.menuName })
+            }
 		})
 		$(".m-content").html(html);
 		$(window).scrollTop(document.documentElement.scrollHeight);
@@ -133,7 +141,7 @@ function menuRouteEntry(){
 
     if( gFirstEnter ) {
         // 默认推送
-        getArticles("0");
+        getArticles("0", "默认");
         getMenus();
         gFirstEnter = false 
 
