@@ -39,9 +39,9 @@ function handleArticle (req, res, next) {
         case 'lists' : 
 
             if( req.query.type === 'recommended' ) {
-                if( req.query.key === 'relatedHardwareM' ) {
+                if( req.query.cate_id === 'relatedHardwareM' ) {
                     retData = clone( mockData.recommendGoods ) 
-                } else if ( req.query.key === 'peerCompanyStateM' ) {
+                } else if ( req.query.cate_id === 'peerCompanyStateM' ) {
                     retData = clone( mockData.noArticles ) 
                 } else {
                     retData = clone( mockData.allArticles) 
@@ -56,7 +56,7 @@ function handleArticle (req, res, next) {
                 }
             }
 
-            retData.data.key = req.query.key
+            retData.data.cate_id = req.query.cate_id
             res.send( retData ) 
             return 
 

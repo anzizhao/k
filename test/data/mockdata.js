@@ -67,17 +67,17 @@ function generateObj () {
                         {
                             "type":"click", // type 为click, 前端做的一些操作
                             "name":"公司动态",
-                            "key": "companyStateM",
+                            "cate_id": "companyStateM",
                         },
                         {
                             "type":"click", 
                             "name":"产品动态",
-                            "key": "productStateM",
+                            "cate_id": "productStateM",
                         },
                         {
                             "type":"click", 
                             "name":"同行动态",
-                            "key": "peerCompanyStateM",
+                            "cate_id": "peerCompanyStateM",
                         },
                     ]
                 },
@@ -87,32 +87,32 @@ function generateObj () {
                         {
                             "type":"click", // type 为click, 前端做的一些操作
                             "name":"最新案例",
-                            "key": "newCaseM",
+                            "cate_id": "newCaseM",
                         },
                         {
                             "type":"click", 
                             "name":"培训",
-                            "key": "trainM",
+                            "cate_id": "trainM",
                         },
                         {
                             "type":"click", 
                             "name":"话术",
-                            "key": "speechcraftM",
+                            "cate_id": "speechcraftM",
                         },
                         {
                             "type":"click", 
                             "name":"热门活动",
-                            "key": "hotActivityM",
+                            "cate_id": "hotActivityM",
                         },
                         {
                             "type":"click", 
                             "name":"行业方案",
-                            "key": "industrySolutionsM",
+                            "cate_id": "industrySolutionsM",
                         },
                         {
                             "type":"click", 
                             "name":"相关硬件",
-                            "key": "relatedHardwareM",
+                            "cate_id": "relatedHardwareM",
                         },
                     ]
                 },
@@ -137,14 +137,14 @@ function generateObj () {
                         {
                             "type":"click", 
                             "name":"名人堂",
-                            "key": "hallOfFameM",
+                            "cate_id": "hallOfFameM",
                         },
                     ]
                 }
             ]
         },
         recommendArticle: {  // 推送文章
-            key: '',
+            cate_id: '',
             link: '',
             articles : [
                 {
@@ -174,7 +174,7 @@ function generateObj () {
             ]
         },
         recommendGoods: {  // 推送文章
-            key: '',
+            cate_id: '',
             link: '',
             articles : [
                 {

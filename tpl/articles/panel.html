@@ -15,7 +15,7 @@
 		{{each articles as artcile i}}
 			{{if i >= 1}}
 				<li>
-					<a href="">
+					<a  href="#/articleDetails/{{ articles.article_id }}" >
 						<p>{{artcile.title}}</p>
 						<img src="{{artcile.picture}}">
 					</a>	
