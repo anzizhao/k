@@ -64,6 +64,7 @@ function getArticles(key){
 		success: function(res){
 			if(res.error == 0){
 				//data.sections.push( { articles: res.data.articles } )
+                if( res.data)
 				data.sections.push( res.data  )
 				renderArticles();
 			}
@@ -106,6 +107,8 @@ function getMenus(){
     var _data = { 
         controller: 'article',
         action: 'menus',
+        partner_id: gPartner_id, 
+        employee_sn : gEmployee_sn ,
     }
 
 	// 获取底部菜单

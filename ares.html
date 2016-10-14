@@ -24,10 +24,26 @@
         var gPartner_id = '2879720';
         var gEmployee_sn = '015';
         var gWhoamiUrl = '//localhost/';
-
         var gData = {};
-        // var URL_PREFIX='//localhost:6330'
-          var URL_PREFIX=''
+        var URL_PREFIX='//localhost:6330';
+//          var URL_PREFIX=''
+
+        // 从url获取id 和 sn的号码
+        ;(function(){
+            var query = window.location.search.substr(1) 
+            query.split('&').forEach(function(item){
+                    var result = item.split('=');
+                    switch( result[0])  {
+                        case 'partner_id': 
+                            gPartner_id = result[1];
+                            break
+                        case 'employee_sn': 
+                            gEmployee_sn = result[1];
+                            break
+                    }
+                }) 
+         }())
+
     </script>
 
     <script type="text/javascript" src="js/dist/ares.bundle.js"></script>

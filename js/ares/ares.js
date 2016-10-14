@@ -42,12 +42,17 @@ Ares.prototype.transformData = function(data){
     this.data = data
 
     //whoamiUrl 
+    var encodeAvatar = encodeURIComponent( data.employee_avatar )
     this.data.whoamiUrl =  gWhoamiUrl  
     +  '?id='  + data.partner_id  
     + '&sn='  + data.employee_sn  
     + '&name='  + data.employee_name 
     + '&team=' + data.partner_name
-    + '&avatar=' + data.employee_avatar;
+    + '&avatar=' + encodeAvatar;
+
+    //  id sn 
+    this.data.partner_id = this.id; 
+    this.data.employee_sn = this.sn;
 }
 
 Ares.prototype.render = function(){

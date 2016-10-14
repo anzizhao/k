@@ -24,12 +24,30 @@
 	 <script>
         // 全局数据 
         // 需要渲染
-        var partner_id = '12345';
-        var employee_sn = '012';
-        // var URL_PREFIX='//localhost:6330'
-        var URL_PREFIX=''
+        var gPartner_id = '12345';
+        var gEmployee_sn = '012';
+
+         var URL_PREFIX='//localhost:6330'
+        // var URL_PREFIX=''
         var gData = {};
         var gRouter;
+
+        // 从url获取id 和 sn的号码
+        ;(function(){
+            var query = window.location.search.substr(1) 
+            query.split('&').forEach(function(item){
+                    var result = item.split('=');
+                    switch( result[0])  {
+                        case 'partner_id': 
+                            gPartner_id = result[1];
+                            break
+                        case 'employee_sn': 
+                            gEmployee_sn = result[1];
+                            break
+                    }
+                }) 
+         }())
+
     </script>
 
     <script type="text/javascript" src="js/dist/article.bundle.js"></script>
