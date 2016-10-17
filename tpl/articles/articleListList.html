@@ -1,11 +1,16 @@
-{{each articles as artcle i}}
-<li>
-<a href="{{artcle.link}}">
+{{each articles as article i}}
+<li class="artcle-list-li">
+<a 
+    href="javascript:void(0)" 
+    data-type="{{article.type}}"  
+    data-id="{{article.article_id}}"  
+    data-link="{{article.link}}"  
+    >
     <div class="l-artcle-list-info">
-        <p>{{artcle.title}}</p>
-        <span class="l-artcle-list-time">{{artcle.post_date}}</span>
+        <p>{{article.title}}</p>
+        <span class="l-artcle-list-time">{{article.post_date}}</span>
     </div>
-    <img src="{{artcle.picture}}">
+    <img src="{{article.picture}}">
 </a>	
 </li>
 {{/each}}

@@ -1,6 +1,12 @@
 <section class="m-panel">
 	<div class="m-panel-main-article">
-        <a href="#/articleDetails/{{ articles[0].article_id }}" style="background-image:url({{articles[0].picture}});">
+        <a 
+            href="javascript:void(0)" 
+            class="first-item" 
+            data-type="{{articles[0].type}}"  
+            data-id="{{articles[0].article_id}}"  
+            data-link="{{articles[0].link}}"  
+            style="background-image:url({{articles[0].picture}});">
 			<div class="m-panel-tips">
 				<p>{{articles[0].title}}
 
@@ -12,12 +18,17 @@
 		</a>
 	</div>
 	<ul class="m-panel-article-list">
-		{{each articles as artcile i}}
+		{{ each articles as article i}}
 			{{if i >= 1}}
 				<li>
-					<a  href="#/articleDetails/{{ articles.article_id }}" >
-						<p>{{artcile.title}}</p>
-						<img src="{{artcile.picture}}">
+					<a  
+                        href="javascript:void(0)" 
+                        data-type="{{article.type}}"  
+                        data-id="{{article.article_id}}"  
+                        data-link="{{article.link}}"  
+                        >
+						<p>{{article.title}}</p>
+						<img src="{{article.picture}}">
 					</a>	
 				</li>
 			{{/if}}

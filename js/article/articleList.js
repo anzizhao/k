@@ -1,8 +1,10 @@
 var articleListTpl = require('../../tpl/articles/articleList.html');
 
-var articleListListTpl = require('../../tpl/articles/articleListList.html')
+var articleListListTpl = require('../../tpl/articles/articleListList.html');
 
-var InfiniteScroll = require('./infiniteScroll')
+var InfiniteScroll = require('./infiniteScroll');
+
+var goToItem = require('./util').goToItem;
 
 function ArticleList (key){
     this.key = key
@@ -85,12 +87,20 @@ ArticleList.prototype.render = function(){
        this.firstRender = false
        this.bindScroll()
 
+       $(".l-artcle-list").on('click','li>a', function(e){
+           e.stopPropagation();
+           goToItem( this );
+       });
+
     } else {
         html = articleListListTpl ( this.data );
         $(".l-artcle-list").append(html);
 
         this.totalData.articles = this.totalData.articles.concat( this.data ) 
     }
+
+    // after render 
+
 }
 
 

@@ -3,6 +3,8 @@ var panelTpl = require('../../tpl/articles/panel.html')
 var menuTpl = require('../../tpl/articles/menu.html')
 var noArticleTpl = require('../../tpl/articles/noArticleMessage.html')
 
+var goToItem = require('./util').goToItem;
+
 
 var data = {
 	button: null,
@@ -41,7 +43,6 @@ function init(){
                 break
         }
 	})
-
 
 	function hideMenuItem(){
 		$(".m-footer-nav .item").children("div").hide();
@@ -97,7 +98,18 @@ function renderArticles(){
             gRouter.setRoute('articleList/'+key)
         });
 
+        $(".m-panel-main-article").on('click','.first-item', function(e){
+            e.stopPropagation();
+            goToItem( this )
+        });
+        $(".m-panel-article-list").on('click','li>a', function(e){
+            e.stopPropagation();
+            goToItem( this )
+        });
 	}
+
+
+
 }
 
 function renderMenus(){
