@@ -67,6 +67,7 @@ AresScore.prototype.transformData = function(data){
         data.stars.push(i) 
     }
     this.aresData = data
+
 }
 
 AresScore.prototype.render = function(){
@@ -81,6 +82,7 @@ AresScore.prototype.render = function(){
     for( key in this.scoreData ) {
         data[key] = this.scoreData[key]
     }
+    data.url_query = window.location.search; 
 
     //var html = template('aresScore', data);
     var html = aresScoreTpl ( data );

@@ -59,6 +59,8 @@ AresStore.prototype.render = function(){
         return  
     }
     var data = this.data
+    data.url_query = window.location.search; 
+
     //var html = template('aresStore', data);
     var html = aresStoreTpl(data);
     document.getElementById('center').innerHTML = html;
