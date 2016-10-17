@@ -211,8 +211,8 @@ $downColor: #59B200;
 	height: 155px;
 	background: url(../img/line1.png) no-repeat center;
 	background-size: 100%;
-	-webkit-animation: line 2s infinite linear;
-	animation: line 2s infinite linear;
+	-webkit-animation: line 4s infinite linear;
+	animation: line 4s infinite linear;
 }
 .line2 {
 	position: absolute;
@@ -222,8 +222,8 @@ $downColor: #59B200;
 	height: 49px;
 	background: url(../img/line2.png) no-repeat center;
 	background-size: 100%;
-	-webkit-animation: line 1s infinite linear;
-	animation: line 1s infinite linear;
+	-webkit-animation: line 2s infinite linear;
+	animation: line 2s infinite linear;
 }
 .line3 {
 	position: absolute;
@@ -233,8 +233,8 @@ $downColor: #59B200;
 	height: 155px;
 	background: url(../img/line1.png) no-repeat center;
 	background-size: 100%;
-	-webkit-animation: line 1.5s infinite linear;	
-	animation: line 1.5s infinite linear;	
+	-webkit-animation: line 3s infinite linear;	
+	animation: line 3s infinite linear;	
 }
 .line4 {
 	position: absolute;
@@ -244,8 +244,8 @@ $downColor: #59B200;
 	height: 49px;
 	background: url(../img/line2.png) no-repeat center;
 	background-size: 100%;
-	-webkit-animation: line 1s infinite linear;
-	animation: line 1s infinite linear;
+	-webkit-animation: line 2s infinite linear;
+	animation: line 2s infinite linear;
 }
 .line5 {
 	position: absolute;
@@ -255,8 +255,8 @@ $downColor: #59B200;
 	height: 49px;
 	background: url(../img/line2.png) no-repeat center;
 	background-size: 100%;
-	-webkit-animation: line 1.4s infinite linear;
-	animation: line 1.4s infinite linear;
+	-webkit-animation: line 2.8s infinite linear;
+	animation: line 2.8s infinite linear;
 }
 .line6 {
 	position: absolute;
@@ -266,8 +266,8 @@ $downColor: #59B200;
 	height: 155px;
 	background: url(../img/line1.png) no-repeat center;
 	background-size: 100%;
-	-webkit-animation: line 1.2s infinite linear;	
-	animation: line 1.2s infinite linear;	
+	-webkit-animation: line 2.4s infinite linear;	
+	animation: line 2.4s infinite linear;	
 }
 
 // 成绩
@@ -638,6 +638,14 @@ $downColor: #59B200;
 			border-left: none;
 		}
 	}
+    li.item > a  {
+        /*overflow-x: hidden; */
+        /*max-width: 100px;*/
+        /*width: 90px;*/
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    } 
 	div {
 		display: none;
 		position: absolute;
