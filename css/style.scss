@@ -914,32 +914,48 @@ $downColor: #59B200;
 	}
 }
 
-
+section.noArticle {
+    padding-top: 20px; 
+}
 
 .kba-avatar {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    display: inline-block;
+    margin-left: 8px;
 }
+.kba-image {
+    width: 40px;
+    height: 40px;
+}
+
+
+
 .bubble {
     background-color: #fff;
     border-color: #919191;
     position: relative;
     border-radius: 5px;
+    display: inline-block;
+    margin-left: 10px;
 }
+
 .bubble:before {
     position: absolute;
     content: '';
-    border-right: 7px solid gray;
-    border-top: 5px solid gray;
-    border-bottom: 5px solid gray;
-    top: 5px;
+    border: 9px solid transparent;
+    border-right: 7px solid #FFFFFF;
+    top: 10px;
+    margin-left: -16px;
 }
 
 .bubble_cont {
     word-wrap: break-word;
     word-break: break-all;
-    min-height: 2.5rem;
+
+    padding: 0 15px;
+    min-height: 1rem;
 }
 
 
