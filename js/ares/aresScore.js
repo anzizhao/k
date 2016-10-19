@@ -70,6 +70,32 @@ AresScore.prototype.transformData = function(data){
 
 }
 
+
+
+AresScore.prototype.afterRender = function(){
+    $('.circle').each(function(index, el) {
+        var num = $(this).find('span').text() * 3.6;
+        if (num>=180) {
+            $(this).find('.left').css(circleRotate(num));
+        } else {
+            $(this).find('.left').css(circleRotate(180));
+            $(this).find('.right').css(circleRotate(num-180));
+        };
+    });
+
+    function circleRotate(num){
+        return {
+            "-webkit-transform": "rotate("+num+"deg)",
+            "-moz-transform": "rotate("+num+"deg)",
+            "-ms-transform": "rotate("+num+"deg)",
+            "transform": "rotate("+num+"deg)",
+            "-webkit-transition": "all .4s linear",
+            "-ms-transition": "all .4s linear",
+            "transition": "all .4s linear",
+        }
+    }
+}
+
 AresScore.prototype.render = function(){
     if (!this.hasData() ) {
         return  
@@ -87,6 +113,9 @@ AresScore.prototype.render = function(){
     //var html = template('aresScore', data);
     var html = aresScoreTpl ( data );
     document.getElementById('center').innerHTML = html;
+
+    this.afterRender()
+    
 }
 
 function aresScoreRouteEntry (){

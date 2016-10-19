@@ -8,6 +8,7 @@ function goToItem(elem){
             href ='#/articleDetails/'  + id;
             break
         case 'link': 
+        case 'goodsInfo': 
             link = $(elem).data("link")
             href = link;
             break
