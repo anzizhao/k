@@ -1,5 +1,6 @@
 
 var aresTpl = require('../../tpl/ares/ares.html')
+var makeAresUrl = require('../utils').makeAresUrl
 
 function Ares(partnerId, employeeSn){
     this.id = partnerId;
@@ -41,14 +42,8 @@ Ares.prototype.transformData = function(data){
     }
     this.data = data
 
-    //whoamiUrl 
-    var encodeAvatar = encodeURIComponent( data.employee_avatar )
-    this.data.whoamiUrl =  gWhoamiUrl  
-    +  '?id='  + data.partner_id  
-    + '&sn='  + data.employee_sn  
-    + '&name='  + data.employee_name 
-    + '&team=' + data.partner_name
-    + '&avatar=' + encodeAvatar;
+
+    this.data.whoamiUrl = makeAresUrl(gWhoamiUrl, data) 
 
     //  id sn 
     this.data.partner_id = this.id; 

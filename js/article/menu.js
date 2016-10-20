@@ -4,17 +4,16 @@ var menuTpl = require('../../tpl/articles/menu.html')
 var noArticleTpl = require('../../tpl/articles/noArticleMessage.html')
 
 var goToItem = require('./util').goToItem;
-
+var makeAresUrl = require('../utils').makeAresUrl
 
 var data = {
 	button: null,
 	sections: [],
 	articles: null,
-    keyboardUrl: gKeyboardUrl, 
+    //keyboardUrl: gKeyboardUrl, 
 }
 
 function init(){
-
 
 	// 底部菜单
 	$(".m-footer-nav .item").click(function(e){
@@ -112,15 +111,43 @@ function renderArticles(){
 
 }
 
+var status = {
+    getAresInfo: false,
+    getMenus: false,
+};
+
 function renderMenus(){
 	if(data.button){
 		//var html = template("menu", data);
+        data.keyboardUrl = gKeyboardUrl; 
 		var html = menuTpl ( data);
 		$("#container").html(html);
 		init();
 	}
 }
-
+function shouldRenderMenus(){
+    if( status.getMenus && status.getAresInfo) {
+        renderMenus() 
+    }
+}
+function getAresInfo (id, sn){
+    var url = URL_PREFIX + '/index.php';
+    var urlObj = {
+        partner_id: id, 
+        employee_sn : sn,
+        controller: 'employee', 
+        action: 'card'
+    }
+    status.getAresInfo = false;
+    $.getJSON( url, urlObj, function(data){
+        if(data.error == 0){
+            status.getAresInfo = true;
+            // 组合url
+            gKeyboardUrl = makeAresUrl(gKeyboardUrl, data.data) ;
+            shouldRenderMenus();
+        }
+    })
+}
 
 function getMenus(){
     var url =  URL_PREFIX + '/index.php' 
@@ -131,6 +158,7 @@ function getMenus(){
         employee_sn : gEmployee_sn ,
     }
 
+    status.getMenus = false;
 	// 获取底部菜单
 	$.ajax({
 		type: 'GET',
@@ -139,14 +167,15 @@ function getMenus(){
         data: _data,
 		success: function(res){
 			if(res.error == 0){
+                status.getMenus = true;
 				data.button = res.data.button;
-				renderMenus();
+                shouldRenderMenus();
 			}
 		}
 	});
 }
 
-var gFirstEnter = true 
+var gFirstEnter = true ;
 
 function menuRouteEntry(){
 	$("#view-page").html('<div class="m-content" id="js-m-content"></div><div id="container"></div>');
@@ -155,6 +184,7 @@ function menuRouteEntry(){
         // 默认推送
         getArticles("0", "默认");
         getMenus();
+        getAresInfo(gPartner_id, gEmployee_sn);
         gFirstEnter = false 
 
     } else {
