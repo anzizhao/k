@@ -4,6 +4,9 @@ var aresScoreRouteEntry  = require('./aresScore')
 var aresStoreRouteEntry = require('./aresStore')
 
 
+$(function() {
+    FastClick.attach(document.body);
+});
 
 try{
     // 路由配置

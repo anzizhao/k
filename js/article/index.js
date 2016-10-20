@@ -2,6 +2,10 @@ var menuRouteEntry = require('./menu')
 var articleDetailsRouteEntry = require('./articleDetails')
 var articleListRouteEntry = require('./articleList')
 
+$(function() {
+    FastClick.attach(document.body);
+});
+
 // 路由配置
 var routes = {
     '/menu': menuRouteEntry,

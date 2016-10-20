@@ -13,6 +13,9 @@ var data = {
     //keyboardUrl: gKeyboardUrl, 
 }
 
+
+
+
 function init(){
 
 	// 底部菜单
@@ -43,11 +46,11 @@ function init(){
         }
 	})
 
-	function hideMenuItem(){
-		$(".m-footer-nav .item").children("div").hide();
-	}
+    function hideMenuItem(){
+        $(".m-footer-nav .item").children("div").hide();
+    }
 
-	$("html").click(hideMenuItem);
+	$("body").click(hideMenuItem);
 }
 
 
