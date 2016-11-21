@@ -22,6 +22,8 @@ function articleDetailsRouterEntry(id){
 				console.dir(data.data);
 				//var html = template("articleDetails", data.data);
                 gApi.detail = data.data;
+                dispatchGetApiEvent('detail');
+
 				var html = articleDetailsTpl(data.data);
 				$("#view-page").html(html);
 			}

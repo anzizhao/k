@@ -60,6 +60,28 @@
                 }) 
          }())
 
+
+        function dispatchGetApiEvent(api) {
+            var event = new CustomEvent('getApi',{api: api });
+            document.dispatchEvent(event);
+        }
+
+        document.addEventListener('getApi',function(e){
+                console.log( e.api );
+                switch(e.api) {
+                    case 'menu': 
+
+                        break
+                    case 'list':
+
+                        break
+                    case 'detail':
+
+                        break
+                }
+        },false);
+
+
     </script>
 
     <script type="text/javascript" src="js/dist/article.bundle.js"></script>

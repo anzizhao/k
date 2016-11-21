@@ -73,10 +73,12 @@ function getArticles(key, menuName){
                 res.data.menuName = menuName; 
                 data.sections.push( res.data  )
                 renderArticles();
+
 			}
 		}
 	});	
 }
+
 
 function renderArticles(){
 	if(data.sections.length ){
@@ -173,6 +175,8 @@ function getMenus(){
                 status.getMenus = true;
 				data.button = res.data.button;
                 shouldRenderMenus();
+
+                dispatchGetApiEvent('menu');
 			}
 		}
 	});

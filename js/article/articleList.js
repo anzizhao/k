@@ -47,7 +47,12 @@ ArticleList.prototype.getData = function(page, _limit){
         if(data.error !== 0){
             return 
         }
-        gApi.list = data.data; 
+        if( ! this.data ) {
+            // 只有第一次调用
+            gApi.list = data.data; 
+            dispatchGetApiEvent('list');
+        }
+
         if( data.data && data.data.articles && data.data.articles.length ) {
             mv.transformData( data.data  )
             mv.render() 
