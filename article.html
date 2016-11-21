@@ -62,13 +62,13 @@
 
 
         function dispatchGetApiEvent(api) {
-            var event = new CustomEvent('getApi',{api: api });
+            var event = new CustomEvent('getApi',{ detail: api });
             document.dispatchEvent(event);
         }
 
         document.addEventListener('getApi',function(e){
-                console.log( e.api );
-                switch(e.api) {
+                console.log( e.detail);
+                switch(e.detail) {
                     case 'menu': 
 
                         break
