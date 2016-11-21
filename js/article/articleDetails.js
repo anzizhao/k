@@ -2,6 +2,8 @@ var articleDetailsTpl = require('../../tpl/articles/articleDetails.html')
 var articleRecommendTpl  = require('../../tpl/articles/articleRecommend.html')
 
 function articleDetailsRouterEntry(id){
+    gApi.curPage = 'detail';
+
 	$(window).scrollTop(0);
     var url =  URL_PREFIX + '/index.php' 
     var _detailData = { 
@@ -19,6 +21,7 @@ function articleDetailsRouterEntry(id){
 			if(data.error == 0){
 				console.dir(data.data);
 				//var html = template("articleDetails", data.data);
+                gApi.detail = data.data;
 				var html = articleDetailsTpl(data.data);
 				$("#view-page").html(html);
 			}

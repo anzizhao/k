@@ -47,6 +47,7 @@ ArticleList.prototype.getData = function(page, _limit){
         if(data.error !== 0){
             return 
         }
+        gApi.list = data.data; 
         if( data.data && data.data.articles && data.data.articles.length ) {
             mv.transformData( data.data  )
             mv.render() 
@@ -115,7 +116,7 @@ function articleListRouteEntry (key){
         gRouter.setRoute('/menu')
         return  
     }
-
+    gApi.curPage = 'list';
     if( ! gData.articleList || gData.articleList.getKey() !== key ) {
         gData.articleList =  new ArticleList(key)
     } 

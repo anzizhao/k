@@ -183,6 +183,9 @@ var gFirstEnter = true ;
 function menuRouteEntry(){
 	$("#view-page").html('<div class="m-content" id="js-m-content"></div><div id="container"></div>');
 
+
+    gApi.curPage = 'menu';
+
     if( gFirstEnter ) {
         // 默认推送
         getArticles("0", "默认");
