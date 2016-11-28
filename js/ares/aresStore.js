@@ -47,6 +47,9 @@ AresStore.prototype.getData = function(){
                 currentType:  mv.TYPE[ mv.type ]
             }
             mv.render() 
+
+            gApi.aresStore  = data.data; 
+            dispatchGetApiEvent('aresStore');
         }
     })
 }

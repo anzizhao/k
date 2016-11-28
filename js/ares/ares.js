@@ -28,8 +28,12 @@ Ares.prototype.getData = function(){
     var mv = this
     $.getJSON( url, urlObj, function(data){
         if(data.error == 0){
+
             mv.transformData( data.data  )
             mv.render() 
+
+            gApi.ares = data.data; 
+            dispatchGetApiEvent('ares');
         }
     })
 }

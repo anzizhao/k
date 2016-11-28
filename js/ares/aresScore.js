@@ -37,9 +37,12 @@ AresScore.prototype.getData = function(){
     var mv = this
     $.getJSON( url, urlObj , function(data){
         if(data.error == 0){
+            gApi.ares = data.data; 
+
             mv.transformData( data.data  )
             apiStatus.ares = true
             shouldRender()
+            
         }
     })
 
@@ -47,6 +50,7 @@ AresScore.prototype.getData = function(){
 
     $.getJSON( url, urlObj , function(data){
         if(data.error == 0){
+            gApi.aresScore = data.data; 
             mv.scoreData = data.data
             apiStatus.score = true
             shouldRender()
@@ -56,6 +60,7 @@ AresScore.prototype.getData = function(){
     function shouldRender(){
         if( apiStatus.ares && apiStatus.score )  {
             mv.render() 
+            dispatchGetApiEvent('aresScore');
         }
     }
 }

@@ -32,6 +32,12 @@
         // var URL_PREFIX='/kba';
         var URL_PREFIX='';
 
+        var gApi = {
+            ares: null,  //战神信息 
+            aresStore: null,    // 战神下的商家 
+            aresScore: null,    // 战神成绩 
+        };
+
         // 从url获取id 和 sn的号码
         ;(function(){
             var query = window.location.search.substr(1) 
@@ -47,6 +53,27 @@
                     }
                 }) 
          }())
+
+
+        function dispatchGetApiEvent(api) {
+            var event = new CustomEvent('getApi',{ detail: api });
+            document.dispatchEvent(event);
+        }
+
+        document.addEventListener('getApi',function(e){
+                switch(e.detail) {
+                    case 'ares': 
+
+                        break
+                    case 'aresStore':
+
+                        break
+                    case 'aresScore':
+
+                        break
+                }
+        },false);
+
 
     </script>
 
